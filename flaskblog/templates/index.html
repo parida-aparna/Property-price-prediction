@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="login">
+    <h1>Property Price Prediction</h1>
+      <br>
+      <!-- Main Input For Receiving Query to our ML -->
+      <div class="content-section">
+        <form action="{{ url_for('predict')}}"method="post">
+          <fieldset class="form-group">
+            <div class="form-group">
+              No. of Bedrooms:<br>
+              <input type="text" name="bedrooms" placeholder="Bedrooms" required="required" />
+              <hr>
+              No. of Bathrooms:<br>
+              <input type="text" name="bathrooms" placeholder="Bathrooms" required="required" />
+              <hr>
+              Sqft_Living Area:<br>
+              <input type="text" name="sqft_living" placeholder="Sqft_Living" required="required" />
+              <hr>
+              Sqft_Lot Area:<br>
+              <input type="text" name="sqft_lot" placeholder="Sqft_Lot" required="required" />
+              <hr>
+              No. of Floors:<br>
+              <input type="text" name="floors" placeholder="Floors" required="required"/>
+              <hr>
+              Waterfront(0 = No WaterFront)<br>
+              <input type="text" name="waterfront" placeholder="Waterfront" required="required" />
+              <hr>
+              Views:<br>
+              <input type="text" name="view" placeholder="View" required="required"/>
+              <hr>
+              Condition:<br>
+              <input type="text" name="condition" placeholder="Condition" required="required"/>
+              <hr>
+              Grade:<br>
+              <input type="text" name="grade" placeholder="Grade" required="required"/>
+              <hr>
+              Sqft_above Area:<br>
+              <input type="text" name="sqft_above" placeholder="Sqft_Above" required="required"/>
+              <hr>
+              Sqft_Basement Area:<br>
+              <input type="text" name="sqft_basement" placeholder="Sqft_Basement" required="required"/>
+              <hr>
+              Year_Built:<br>
+              <input type="text" name="yr_built" placeholder="Year_Built" required="required"/>
+              <hr>
+              Year Renovated:<br>
+              <input type="text" name="yr_renovated" placeholder="Year Renovated" required="required"/>
+              <hr>
+              Zipcode:<br>
+              <input type="text" name="zipcode" placeholder="Zipcode" required="required"/>
+              <hr>
+              Latitude:<br>
+              <input type="text" name="lat" placeholder="Latitude" required="required"/>
+              <hr>
+              Longitude:<br>
+              <input type="text" name="long" placeholder="Longitude" required="required"/>
+              <hr>
+              Sqft_Living15 Area:<br>
+              <input type="text" name="sqft_living15" placeholder="Sqft_Living15" required="required"/>
+              <hr>
+              Sqft_Lot15 Area:<br>
+              <input type="text" name="sqft_lot15" placeholder="Sqft_Lot15" required="required"/>
+              
+              <br>
+              <br>
+        
+              <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    <br>
+    <br>
+    
+    {{ prediction_text }}
+
+  </div>
+{% endblock content %}
+

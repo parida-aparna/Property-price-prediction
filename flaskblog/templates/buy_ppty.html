@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Fill Details</legend>
+                <div class="form-group">
+                    {{ form.income.label(class="form-control-label") }}
+
+                    {% if form.income.errors %}
+                        {{ form.income(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.income.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.income(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.loan(class="form-check-input") }}
+                    {{ form.loan.label(class="form-check-label") }}
+                </div>
+                <div class="form-group">
+                    {{ form.pan.label() }}
+                    {{ form.pan(class="form-control-file") }}
+                    {% if form.pan.errors %}
+                        {% for error in form.pan.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.bill.label() }}
+                    {{ form.bill(class="form-control-file") }}
+                    {% if form.bill.errors %}
+                        {% for error in form.bill.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.govt(class="form-check-input") }}
+                    {{ form.govt.label(class="form-check-label") }}
+                </div>
+                <br>
+                <div class="form-check">
+                    {{ form.business(class="form-check-input") }}
+                    {{ form.business.label(class="form-check-label") }}
+                </div>
+                <br>
+                <div class="form-check">
+                    {{ form.others(class="form-check-input") }}
+                    {{ form.others.label(class="form-check-label") }}
+                </div>
+
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}
